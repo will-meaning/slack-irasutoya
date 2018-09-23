@@ -61,7 +61,7 @@ controller.hears(['いらすとや'], 'direct_message,direct_mention,mention,amb
   postIrasutoya(message.channel);
 });
 
-// cronでスケジュール実行する
-cron.schedule('0,15,30,45 * * * * *', () => {
+// cronでスケジュール実行する（月曜〜金曜の12時と15時）
+cron.schedule('0 * 12,15 * * 1-5', () => {
   postIrasutoya('#general');  // #generalチャンネルに投稿
 });
