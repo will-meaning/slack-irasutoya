@@ -38,22 +38,21 @@ function postIrasutoya(channel){
     const url = await src.jsonValue();
     const title = await page.$eval('#post h2', item => {
       return item.innerText;
-  　});
+    });
     
     bot.say({
-        channel: channel,
-        text: '休憩しようぜ！<' + url + '|' + title + '>',
-        as_user: false,
-        username : 'いらすとや',
-        icon_emoji: ':+1:',
+      channel: channel,
+      text: '休憩しようぜ！<' + url + '|' + title + '>',
+      as_user: false,
+      username : 'いらすとや',
+      icon_emoji: ':+1:',
     }, function(err, res) {
-        if (err) {
-            bot.botkit.log('Failed to postMessage', err);
-        }
+      if (err) {
+        bot.botkit.log('Failed to postMessage', err);
+      }
     });
     await browser.close();
   })();
-
 }
 
 // トリガーワードで実行する
